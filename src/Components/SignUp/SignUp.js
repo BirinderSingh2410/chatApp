@@ -177,14 +177,14 @@ const SignUp = ({ setSignUpAlert, setSignUpDoneAlert }) => {
       )}
 
       <LoginInput
-        register={{ ...register("password", { required: true }) }}
+        register={{ ...register("password", { required: true}) }}
         label="Password"
         placeholder="Enter Password"
         type="password"
       />
       {errors.password && (
         <small style={{ color: "red" }}>This Field is required</small>
-      )}
+      )}      
 
       <LoginInput
         register={{ ...register("confirmPassword", { required: true }) }}
