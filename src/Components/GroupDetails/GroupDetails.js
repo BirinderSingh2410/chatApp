@@ -35,8 +35,6 @@ const GroupDetails = ({ show, setShow, setFetchAgain, fetchAgain }) => {
 
   const { setSelectedChat, selectedchat, user } = ChatState();
 
-  
-
   const deleteFromSelected = async (userId) => {
     
     if (selectedchat.groupAdmin !== user.data._id && userId._id !== user.data._id) {
@@ -230,8 +228,11 @@ const GroupDetails = ({ show, setShow, setFetchAgain, fetchAgain }) => {
           <CloseIcon className="icon-btn" />
         </Icon>
       </DialogContent>
+      <DialogTitle style={{ textAlign: "-webkit-center",backgroundColor: "#757575",height:"50px"}}>
+        <h1>{selectedchat.chatName.toUpperCase()}</h1>
+      </DialogTitle>
       <DialogTitle style={{ textAlign: "-webkit-center" }}>
-        {selectedchat.chatName.toUpperCase()}
+        <h4>Group Admin:{selectedchat.users.map((i)=>{if(i._id === selectedchat.groupAdmin)return i.name})}</h4>
       </DialogTitle>
       <DialogContent style={{ display: "flex", flexWrap: "wrap" }}>
         {selectedchat.users.map((i) => {
@@ -276,6 +277,7 @@ const GroupDetails = ({ show, setShow, setFetchAgain, fetchAgain }) => {
               <UserListItem
                 name={i.name}
                 email={i.email}
+                pic={i.pic}
                 selectUserToChat={() => addUser(i)}
               />
             );
@@ -283,9 +285,6 @@ const GroupDetails = ({ show, setShow, setFetchAgain, fetchAgain }) => {
         )}
       </DialogContent>
       <DialogContent style={{ textAlign: "center" }}>
-        <Button variant="contained" onClick={() => deleteFromSelected(user)}>
-          Leave Group
-        </Button>
       </DialogContent>
     </Dialog>
   );

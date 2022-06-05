@@ -187,6 +187,7 @@ const CreateGroupPop = ({ grouppopup, setGroupPopUp }) => {
                     <UserListItem
                       name={i.name}
                       email={i.email}
+                      pic={i.pic}
                       selectUserToChat={() => addToGroup(i)}
                     />
                   );

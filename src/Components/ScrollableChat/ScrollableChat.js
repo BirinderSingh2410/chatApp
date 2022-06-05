@@ -27,7 +27,7 @@ const ScrollBar = styled.div`
 `;
 const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
-console.log(messages+"   "+user);
+
   return (
     <ScrollBar>
       {messages &&

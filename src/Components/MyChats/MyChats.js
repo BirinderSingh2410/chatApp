@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import ChatLoading from "../ChatLoading/ChatLoading";
-import { getSenderName } from "../../Config/ChatLogics";
+import { getSenderName ,getSenderPic} from "../../Config/ChatLogics";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ChatState } from "../Context/ChatProvider";
@@ -180,9 +180,8 @@ const MyChats = ({ fetchAgain }) => {
                 }}
                 style={{ backgroundColor: { color } }}
               >
-                {i.isGroupChat ? null :  <Avatar alt={i.users[1].name} src={i.users[1].pic} className="avatar" />}
+                {i.isGroupChat ? null :  <Avatar alt={getSenderName(loggedUser, i.users)} src={getSenderPic(loggedUser, i.users)} className="avatar" />}
                 <h2>
-                  
                   {i.isGroupChat
                     ? i.chatName
                     : getSenderName(loggedUser, i.users)}
